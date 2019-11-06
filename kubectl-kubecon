@@ -1,4 +1,6 @@
 #!/bin/zsh
+
+#Authors: @Salaboy / @EstebanAliverti
 kubectl $@
 
 if [ -z "$KUBECON" ]
