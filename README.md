@@ -1,4 +1,4 @@
-# KUBCON KubeCTL Plguin 
+# Kubectl Kubecon Plugin / aka CowCtl 
 
 This plugin allows you to keep track how much time remains to the next KubeCon. It gives you a friendly reminder about the conference date and the C4P deadline. 
 
@@ -12,5 +12,11 @@ In order to work you need to export the following variables:
 - Core Utils: `brew install coreutils` for gdate
 - Cowsay: `brew install cowsay`
 
-Kudos to [@esteban-aliverti](http://github.com/esteban-aliverti) for the Bash/Shell contributions and CowSay reference. 
+# Roadmap
+- Read Conference List from GitHub
+- Enable Character selection with Env Variable
+
+# Kudos
+
+Kudos to [@esteban-aliverti](http://github.com/esteban-aliverti) for the Bash/Shell knowledge, Linux `date` check contributions and CowSay reference. 
 
