@@ -1,0 +1,19 @@
+#!/bin/zsh
+kubectl $@
+
+if [ -z "$KUBECON" ]
+then
+    msg1= "Set the variable KUBECON with the next available conference. You can do this by running export KUBECON=2020/03/30 "    
+else
+    msg1=`echo -e $(expr '(' $(gdate -d $KUBECON +%s) - $(gdate +%s) + 86399 ')' / 86400) "days for KubeCon! "`
+fi
+if [ -z "$KUBECONC4P" ]
+then
+    msg2= "Set the variable KUBECONC4P with the date of the C4P deadline. You can do this by running export KUBECONC4p=2019/12/04 "      
+else
+    msg2=`echo -e $(expr '(' $(gdate -d $KUBECONC4P +%s) - $(gdate +%s) + 86399 ')' / 86400) "KubeCon C4P deadline "`
+fi
+cowsay "$msg1
+
+$msg2"
+
