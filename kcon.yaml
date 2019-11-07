@@ -1,0 +1,32 @@
+apiVersion: krew.googlecontainertools.github.com/v1alpha2
+kind: Plugin
+metadata:
+  name: kcon             
+spec:
+  version: "v1.0.0"    
+  platforms:
+  - selector:           
+      matchExpressions:
+      - {key: os, operator: In, values: [darwin, linux]}
+    # url for downloading the package archive:
+    uri: https://github.com/salaboy/kubectl-kcon/releases/kubectl-kcon-1.0.0.zip
+    
+    sha256: "208fde0b9f42ef71f79864b1ce594a70832c47dc5426e10ca73bf02e54d499d0"
+    # copy the used files out of the zip archive, defaults to `[{from: "*", to: "."}]`
+    files:
+    - from: "/foo-*/unix/*.sh" # path to the files extracted from archive
+      to: "."               # '.' refers to the root of plugin install directory
+    bin: "./kubectl-kcon"  # path to the plugin executable after copying files above
+  shortDescription: Reminds you of the next KubeCon Conference Dates and Deadlines for C4P
+  homepage: https://github.com/salaboy/kubectl-kcon/ 
+  caveats: |
+    This plugin needs the following programs:
+    * coreutils (for gdate) -> `brew install coreutils`
+    * cowsay -> `brew install cowsay`
+    This plugin requires you to export the following Env variables:
+     `export KUBECON=2020/03/30`
+     `export KUBECONC4P=`2019/12/04` 
+    Look at the README.md for more information here https://github.com/salaboy/kubectl-kcon/
+  description: |
+    This plugin reminds you very important dates related to KubeCon and the C4P (call for proposal) deadlines.
+    If you find issues with the plugin please report here https://github.com/salaboy/kubectl-kcon/issues
